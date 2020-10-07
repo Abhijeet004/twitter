@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "npm": "6.x",
+    "node": "13.x"
+  },
   
   "scripts": {
     "start": "nodemon index.js",
