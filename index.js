@@ -10,7 +10,7 @@ const mongoose = require("mongoose");
 const keys = require("./config/keys");
 const cors = require("cors");
 const cookieParser = require("cookie-parser"); // parse cookie header
-
+const path = require('path');
 // connect to mongodb
 mongoose.connect(keys.MONGODB_URI, () => {
   console.log("connected to mongo db");
@@ -43,7 +43,7 @@ app.use(
 
 // set up routes
 app.use("/auth", authRoutes);
-
+ 
 const authCheck = (req, res, next) => {
   if (!req.user) {
     res.status(401).json({
@@ -58,7 +58,7 @@ const authCheck = (req, res, next) => {
 // if it's already login, send the profile response,
 // otherwise, send a 401 response that the user is not authenticated
 // authCheck before navigating to home page
-app.get("/", authCheck, (req, res) => {
+app.get("/x", authCheck, (req, res) => {
   res.status(200).json({
     authenticated: true,
     message: "user successfully authenticated",
@@ -67,5 +67,9 @@ app.get("/", authCheck, (req, res) => {
   });
 });
 
+app.use(express.static(path.join(__dirname, "client/build")));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", 'index.html'));
+});
 // connect react to nodejs express server
 app.listen(port, () => console.log(`Server is running on port ${port}!`));
