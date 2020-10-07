@@ -1,0 +1,24 @@
+// ADD YOUR OWN KEYS AND RENAME THIS FILE TO keys.js
+const TWITTER_TOKENS = {
+  TWITTER_CONSUMER_KEY: "9YdiWdxuGP9BZ3nA5nUCBYJxD",
+  TWITTER_CONSUMER_SECRET: "wCKydb61wQ8zS8BoVEErH0nOF8vt1C3TSL6WTdTozah0tvuY1q",
+  TWITTER_ACCESS_TOKEN: "731580942918242305-O4sfFfEsA0qPMYy0os65PPnlRfYkb6v",
+  TWITTER_TOKEN_SECRET: "G7YCIHMBjueJnnXKGHnHCunrlEAZy3Uo3kivNx2eeL77X"
+};
+
+
+const MONGODB = {
+  MONGODB_URI: "mongodb+srv://mishra:8090481148@cluster0.u05go.mongodb.net/test"
+};
+
+const SESSION = {
+  COOKIE_KEY: "thisappisawesome"
+};
+
+const KEYS = {
+  ...TWITTER_TOKENS,
+  ...MONGODB,
+  ...SESSION
+};
+
+module.exports = KEYS;
